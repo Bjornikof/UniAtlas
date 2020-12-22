@@ -6,3 +6,12 @@ from django.http import HttpResponse
 
 def home(request):
     return render(request, 'website/home.html')
+
+def login(request):
+    return render(request, 'website/login.html')
+
+def signup(request):
+    return render(request, 'website/signup.html')
+
+def unisozluk(request):
+    return render(request, 'website/unisozluk.html')

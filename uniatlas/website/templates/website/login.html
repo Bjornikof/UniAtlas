@@ -1,0 +1,27 @@
+{%  extends 'website/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+       <div class= "d-flex flex-row login-card">
+            <img class="align-self-start login-img" src= "{% static 'images/loginimg.jpg' %}" alt="" />
+
+       <div class="d-flex flex-column align-items-center align-self-center login-info-panel">
+            <h1 class="mb-md-5" style="color: #60475a; font-family: 'Times New Roman'">Üye Girişi</h1>
+
+            <input type="text" class="form-control mb-sm-2" placeholder="Kullanıcı Adı" aria-label="Username" aria-describedby="basic-addon1">
+
+            <input type="password" id="inputPassword6" placeholder="Şifre" class="form-control mx-sm-2" aria-describedby="passwordHelpInline">
+
+            <input class="btn btn-primary mt-3" type="button" style="background-color: #59788E; width: 150px" value="Giriş">
+
+            <a href="signup" class="mt-4">Henüz üye olmadın mı? Nasıl olur?</a>
+
+       </div>
+
+       </div>
+
+
+{% endblock %}
+
