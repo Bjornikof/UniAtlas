@@ -6,3 +6,6 @@ from django.http import HttpResponse
 
 def home(request):
     return render(request, 'website/home.html')
+
+def resultpage(request):
+    return render(request, 'website/resultpage.html')
