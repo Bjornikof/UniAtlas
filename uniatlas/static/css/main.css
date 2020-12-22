@@ -63,3 +63,15 @@ body {
     border-radius: 50%;
     background-color: white;
 }
+
+.comment {
+    width: 20%;
+    height: 100px;
+    overflow-y: auto;
+    background-color: lightyellow;
+    border: 1px solid gray;
+    border-radius: 10%;
+    padding: 15px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
