@@ -23,3 +23,5 @@ def unisozluk(request):
 def resultpage(request):
     return render(request, 'website/resultpage.html')
 
+def unipage(request):
+    return render(request, 'website/unipage.html')
