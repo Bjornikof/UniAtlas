@@ -1,0 +1,86 @@
+{% extends 'website/main.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/resultpage.css' %}">
+
+{% block content %}
+
+    <header class="result-header">Filtreleme Kriterleri</header>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="cheapfirst">
+        <label class="form-check-label" for="cheapfirstlabel">Fiyata göre artan</label>
+
+        <input type="checkbox" class="form-check-input" id="expensivefirst">
+        <label class="form-check-label" for="expensivefirstlabel">Fiyata göre azalan</label>
+
+        <input type="checkbox" class="form-check-input" id="unsuccesfulfirst">
+        <label class="form-check-label" for="unsuccesfulfirstlabel">Başarıya göre artan</label>
+
+        <input type="checkbox" class="form-check-input" id="succesfulfirst">
+        <label class="form-check-label" for="succesfulfirstlabel">Başarıya göre azalan</label>
+
+        <input type="checkbox" class="form-check-input" id="leescorefirst">
+        <label class="form-check-label" for="lesscorefirst">Taban puanına göre artan</label>
+
+        <input type="checkbox" class="form-check-input" id="morescorefirst">
+        <label class="form-check-label" for="morescorefirst">Taban puanına göre azalan</label>
+
+    </div>
+    <div class="space-div"></div>
+
+    <div class="col-md-7">
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Derece</th>
+                <th scope="col">Alan</th>
+                <th scope="col">Bölüm</th>
+                <th scope="col">Üniversite</th>
+                <th scope="col">Şehir</th>
+                <th scope="col">Burs</th>
+                <th scope="col">Taban Puanı</th>
+                <th scope="col">Sıralama</th>
+                <th scope="col">Ücret</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>2 Yıllık (Ön-lisans)</td>
+                <td>TYT</td>
+                <td>Su Altı Teknolojileri</td>
+                <td>İstanbul Gedik Üniversitesi</td>
+                <td>İstanbul</td>
+                <td>%50 İndirimli</td>
+                <td>170,182</td>
+                <td>153</td>
+                <td>14.375TL</td>
+                <td>
+                    <button type="button" class="btn btn-success">EKLE</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info">ÜniSözlük</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <nav aria-label="pagination-result">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+{% endblock %}
