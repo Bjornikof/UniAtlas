@@ -1,77 +1,154 @@
-{%  extends 'website/main.html' %}
+{%  include 'website/main.html' %}
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/unisozluk_login.css' %}">
 {% block content %}
 
-    <div class="d-flex flex-row w-75">
-        <div class="d-flex flex-column justify-content-center w-50">
-            <div class="img">
+
+    <div class="d-flex flex-column align-items-center" style="width: 100%">
+       <div class="d-flex flex-row w-75">
+
+        <div class="d-flex flex-column justify-content-center info-card">
+
+            <div class="align-self-center">
+
+               <img class ="img"  src="{% static 'images/ışıküni.jpg' %}" alt="" >
+
             </div>
-            <span>geçmiş</span>
-            <p>asdasd</p>
-            <span>geçmiş</span>
-            <p>asdasd</p>
-            <div class="d-flex d-row">
-                <input type="checkbox"/>
-                <input type="checkbox"/>
-                <input type="checkbox"/>
-                <input type="checkbox"/>
+
+
+            <span class="align-self-center" style="font-weight: bold; color: #60475a">Geçmiş</span>
+            <p class="ml-2"><i>1996 yılında eğitim-öğretim hayatına başlayan Işık Üniversitesi, Feyziye Mektepleri Vakfı'nın 133 yıllık köklü eğitim geleneğinin eseridir.</i></p>
+            <span class="align-self-center" style="font-weight: bold; color: #60475a">Fakülteler</span>
+
+            <p class="ml-2">Fen Epydebiyat Fakültesi, Güzel Sanatlar Fakültesi, Mühendlislik Fakültesi, İktisadi ve İdari Bilimler, Mimarlık ve Tasarım Fakültesi</p>
+            <div class="d-flex align-self-center d-row ml-mt-2">
+                <input type="checkbox" aria-label="Checkbox for following text input" checked>
+                <p style="font-size: small; color: #60475a; margin-right: 4px"><b>Hazırlık Okulu</b></p>
+                <input type="checkbox" checked/>
+                <p style="font-size: small;color: #60475a; margin-right: 4px"><b>Yurt</b></p>
+                <input type="checkbox" checked/>
+                <p style="font-size: small;color: #60475a; margin-right: 4px"><b>Sosyal Tesis</b></p>
+                <input type="checkbox" checked/>
+                <p style="font-size: small; color: #60475a"><b>Shuttle</b></p>
+
             </div>
-            <div class="d-flex d-row">
-                <input type="checkbox"/>
-                <input type="checkbox"/>
-                <input type="checkbox"/>
-                <input type="checkbox"/>
+            <div class="d-flex d-row align-self-center ml-2">
+                <input type="checkbox" aria-label="Checkbox for following text input" checked>
+                <p style="font-size: small; margin-right: 6px; color: #60475a"><b>Yemekhane</b></p>
+                <input type="checkbox" aria-label="Checkbox for following text input" checked>
+                <p style="font-size: small; margin-right: 6px; color: #60475a"><b>Kırtasiye</b></p>
+                <input type="checkbox" aria-label="Checkbox for following text input" checked>
+                <p style="font-size: small; margin-right: 6px; color: #60475a"><b>Kütüphane</b></p>
+                <input type="checkbox" aria-label="Checkbox for following text input" checked>
+                <p style="font-size: small; margin-right: 6px; color: #60475a"><b>Kuaför</b></p>
+
             </div>
         </div>
+
         <div class="d-flex flex-column w-50">
-            <span>
-                Işık
+            <span class="align-self-center mt-5">
+                <h1 style="font-family: 'Times New Roman';color: #60475a">Işık Üniversitesi</h1>
             </span>
-            <span>
-                ---- Değer
+            <span class="mt-3">
+                <h4 style="font-family: 'Times New Roman'">— Değerlendirmeler</h4>
             </span>
-            <div class="d-flex flex-row">
-                <div class="d-flex flex-column">
+
+            <div class="d-flex flex-row mt-3">
+
+              <div class="d-flex flex-column align-items-center">
+                        <img class="icon" style="width: 50px; border-radius: 50px; border: 2px solid" src="{% static 'images/dany.jpg' %}" alt="">
+                        <span style="font-family: 'Times New Roman'; font-weight: bold">callMeKhaleesi</span>
+                    </div>
+
+                <div class="comment-uni">
+                        <p style="font-size: small">
+                            mühendislik fakültesinde survivor çekiyoruz
+                        </p>
+                 <div class="ml-2">
+                    <span class="fa fa-star checked" style="color: #faca0f"></span>
+                    <span class="fa fa-star checked"  style="color: #faca0f"></span>
+                    <span class="fa fa-star checked"  style="color: #faca0f"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                 </div>
 
                 </div>
-                <div class="d-flex flex-column">
-                    <div class="d-flex flex-column">
-                        yıldızlar
-                    </div>
-                    <p>yazı</p>
-                </div>
+
+
             </div>
-            <div class="d-flex flex-row">
-                <div class="d-flex flex-column">
+
+
+            <div class="d-flex flex-row mt-3">
+
+                <div class="d-flex flex-column align-items-center" style="width: 19%">
+                    <img class="icon" style="width: 50px; border-radius: 50px; border: 2px solid" src="{% static 'images/doggy.jpg' %}" alt="">
+                    <span style="font-family: 'Times New Roman'; font-weight: bold">kebab</span>
+                </div>
+
+                     <div class="comment-uni">
+                        <p style="font-size: small">
+                            Hocaların bizi öldürmeye çalıştığına yemin edebilirim ama kanıtlayamam
+                        </p>
+
+                 <div class="ml-2">
+                    <span class="fa fa-star checked" style="color: #faca0f"></span>
+                    <span class="fa fa-star checked"  style="color: #faca0f"></span>
+                    <span class="fa fa-star checked"  style="color: #faca0f"></span>
+                    <span class="fa fa-star checked"  style="color: #faca0f"></span>
+                    <span class="fa fa-star checked"></span>
+                 </div>
 
                 </div>
-                <div class="d-flex flex-column">
-                    <div class="d-flex flex-column">
-                        yıldızlar
-                    </div>
-                    <p>yazı</p>
-                </div>
+
             </div>
-            <div class="d-flex flex-row">
-                <div class="d-flex flex-column">
+
+            <div class="d-flex flex-row mt-3">
+                <div class="d-flex flex-column align-items-center"  style="width: 19%">
+                   <img class="icon" style="width: 50px; border-radius: 50px; border: 2px solid" src="{% static 'images/icon2.jpg' %}" alt="">
+                    <span style="font-family: 'Times New Roman'; font-weight: bold">karpuzsever</span>
+                </div>
+
+               <div class="comment-uni">
+                        <p style="font-size: small">
+                            Yurt ve yemekhane fiyatları çok pahalı bizimle deyılsın :(
+                        </p>
+
+                 <div class="ml-2">
+                    <span class="fa fa-star checked" style="color: #faca0f"></span>
+                    <span class="fa fa-star checked"  style="color: #faca0f"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                 </div>
 
                 </div>
-                <div class="d-flex flex-column">
-                    <div class="d-flex flex-column">
-                        yıldızlar
-                    </div>
-                    <p>yazı</p>
+
+            </div>
+            <div class="d-flex flex-row mt-5">
+                <label class="mr-1">Puan: </label>
+
+                <div class="mb-1">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
                 </div>
+
             </div>
+
             <div class="d-flex flex-row">
-                <label>Puan</label>
-                <div>Yıldızlar</div>
+
+                <textarea class="form-control" placeholder="Yorumunu buraya yaz" aria-label="With textarea"></textarea>
+
+
             </div>
-            <div class="d-flex flex-row">
-                <label>yorum</label>
-                <input type="textarea" />
-            </div>
+
+            <div class= "d-flex flex-column align-items-center mt-3">
+            <button type="button" class="btn btn-primary btn-sm" style="background-color: #59788E">Yolla gitsin!</button>
+          </div>
         </div>
-    </div>
 
+    </div>
+    </div>
 {% endblock %}

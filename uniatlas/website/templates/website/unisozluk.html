@@ -1,5 +1,7 @@
-{%  extends 'website/main.html' %}
+{%  include 'website/main.html' %}
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/unisozluk_login.css' %}">
+
 {% block content %}
 
 
@@ -9,9 +11,9 @@
         </div>
         <span class="mb-4">
             Puana göre filtrele:
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked" style="color: #faca0f"></span>
+            <span class="fa fa-star checked"  style="color: #faca0f"></span>
+            <span class="fa fa-star checked"  style="color: #faca0f"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
         </span>
@@ -21,7 +23,7 @@
             <div class="unisozluk-card-img">
                 <div class="uni-img" src="{% static 'images/ışıküni.jpg' %}" alt="" >
                     <div class="circle d-flex align-items-center">
-                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"  style="color: #faca0f"></span>
                         <span>3.4</span>
                     </div>
                 </div>
@@ -34,11 +36,11 @@
                     1996 yılında eğitim-öğretim hayatına başlayan Işık Üniversitesi, Feyziye Mektepleri Vakfı'nın 133 yıllık köklü eğitim geleneğinin eseridir.
                 </p>
                 <div class="d-flex flex-row align-items-center">
-                    <span style="font-family: 'Times New Roman'; color: #60475a; margin-right: 20px">
+                    <span style="font-family: 'Times New Roman'; color: #4169e1; margin-right: 20px">
                         En Güncel Değerlendirme:
                     </span>
                     <div class="d-flex flex-column align-items-center">
-                        <img class="icon" style="width: 50px; border-radius: 50px" src="{% static 'images/dany.jpg' %}" alt="">
+                        <img class="icon" style="width: 50px; border-radius: 50px; border: 2px solid" src="{% static 'images/dany.jpg' %}" alt="">
                         <span style="font-family: 'Times New Roman'; font-weight: bold">callMeKhaleesi</span>
                     </div>
 

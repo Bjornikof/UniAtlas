@@ -1,8 +1,12 @@
-{%  extends 'website/main.html' %}
+{%  include 'website/main.html' %}
+
 {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static "css/unisozluk_login.css" %}">
 
 {% block content %}
 
+    <div class="d-flex flex-column align-items-center" style="width: 100%">
     <div class= "d-flex flex-row login-card">
         <img class="align-self-start login-img" src= "{% static 'images/loginimg.jpg' %}" alt="" />
 
@@ -20,6 +24,7 @@
         </div>
 
     </div>
+  </div>
 
 {% endblock %}
 
