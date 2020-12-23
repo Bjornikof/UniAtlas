@@ -1,0 +1,29 @@
+.card-body {
+    background-color: #B09BD5;
+}
+
+.card {
+    margin-top: 1em;
+}
+
+#middle-col {
+    margin-top: 1em;
+}
+
+#last-col {
+    width: 30em;
+}
+
+#first-col {
+    width: 40em;
+    margin-left: 5em;
+}
+
+#main-header {
+    color: #B09BD5;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1em;
+}
+
+

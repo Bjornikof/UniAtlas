@@ -4,33 +4,10 @@
 <link rel="stylesheet" type="text/css" href="{% static '/css/unilist.css' %}">
 {% block content %}
 
-    <header class="result-header">Filtreleme Kriterleri</header>
+    <header class="text-header" style="font-family:'Comic Sans MS'" >Tercih Listesi</header>
 
-    <div class="result-form-group">
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="cheapfirst">
-            <label class="form-check-label" for="cheapfirstlabel">Fiyata göre artan</label>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="expensivefirst">
-            <label class="form-check-label" for="expensivefirstlabel">Fiyata göre azalan</label>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="unsuccesfulfirst">
-            <label class="form-check-label" for="unsuccesfulfirstlabel">Başarıya göre artan</label>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="succesfulfirst">
-            <label class="form-check-label" for="succesfulfirstlabel">Başarıya göre azalan</label>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="leescorefirst">
-            <label class="form-check-label" for="lesscorefirst">Taban puana göre artan</label>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="morescorefirst">
-            <label class="form-check-label" for="morescorefirst">Taban puana göre azalan</label>
-        </div>
+    <div class="d-flex justify-content-left">
+       <p class="text-area" style="font-family:'Comic Sans MS'">Beğendiğin üniversitelerin listesi</p>
     </div>
 
     <div class="row justify-content-md-center">
@@ -64,7 +41,7 @@
                         <td>14.375TL</td>
                         <td class="result-button-group">
                             <button type="button" class="btn btn-danger btn-sm">Çıkar</button>
-                            <button href="/unisozluk" type="button" class="btn btn-info btn-sm">Üni Sözlük</button>
+                            <button href="/unisozluk" type="button" class="btn btn-info btn-sm">ÜniSözlük</button>
 
                         </td>
                     </tr>
@@ -82,7 +59,7 @@
                         <td>Ücretsiz</td>
                         <td class="result-button-group">
                             <button type="button" class="btn btn-danger btn-sm">Çıkar</button>
-                            <button href="/unisozluk" type="button" class="btn btn-info btn-sm">Üni Sözlük</button>
+                            <button href="/unisozluk" type="button" class="btn btn-info btn-sm">ÜniSözlük</button>
 
                         </td>
                     </tr>

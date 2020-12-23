@@ -3,147 +3,166 @@
 
 {% block content %}
 
+    <h1 id="main-header" style="font-family:'Comic Sans MS'">ÜNİVERSİTE HAYALİNİ BİRLİKTE İNŞA EDELİM</h1>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/asistant.css' %}">
+    <html>
+    <div class="d-flex justify-content-center">
+        <p class="text-area" style="font-family:'Comic Sans MS'">Selam, ben kişisel asistanın! Gireceğin sınav netlerin
+            ve yüzdelerin ile hayalindeki bölümleri üniversitelerde araştırmaya ne dersin? Unutma, her hayal
+            tasarlanmayı hak eder!</p>
+    </div>
 
-<link rel="stylesheet" type="text/css" href="{% static '/css/asistan.css' %}">
-<html>
+    <div class="d-flex justify-content-center">
+        <div class="row">
+            <div id="first-col" class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <header class="password-header"><b>Arama Kriterleri</b>
+                            </header>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group input-group-md mb-3">
 
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
 
-        <body>
+                                        <label class="input-group-text" for="inputGroupSelect01">Derece</label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                        <option selected>Lisans</option>
+                                        <option value="1">Ön-lisans</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text"
+                                               for="inputGroupSelect01">Üniversite</label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                        <option value="1">İstanbul Medipol Üniversitesi</option>
+                                        <option value="2">Ege Üniversitesi</option>
+                                        <option value="3">Bahçeşehir Üniversitesi</option>
+                                        <option value="4">9 Eylül Üniversitesi</option>
+                                        <option value="5">Kocaeli Üniversitesi</option>
+                                        <option value="6">Akdeniz Üniversitesi</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Burs</label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                        <option value="1">%100 Burslu</option>
+                                        <option value="2">%75 Burslu</option>
+                                        <option value="3">%50 Burslu</option>
+                                        <option value="4">%25 Burslu</option>
+                                        <option value="5">Ücretli</option>
+                                    </select>
+                                </div>
+                                <div class="input-group input-group-md mb-3">
+                                    <div class="card-body">
 
-        <div class="card-body">
-            <div class="row">
-                <div class="col">
+                                        <h5 class="card-title"><b> Daha doğru sonuçlar için sıralamanı gir! </b>
+                                        </h5>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
 
-                         <div class="card" style="background-color: #B09BD5">
-                             <header class="password-header"><b>Arama Kriterleri</b>
-                    </header>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group input-group-md mb-3">
+                                                <label class="input-group-text" for="inputGroupSelect01">Aday
+                                                    Kriteri</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01">
+                                                <option selected>Sıralama</option>
+                                                <option value="1">Puan</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="">Aday Sıralama Aralığı</span>
+                                            </div>
+                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control">
+                                        </div>
 
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-
-                                <label class="input-group-text" for="inputGroupSelect01">Derece</label>
+                                    </div>
+                                </div>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Lisans</option>
-                                <option value="1">Ön-lisans</option>
-                            </select>
                         </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text"
-                                       for="inputGroupSelect01">Üniversite</label>
-                            </div>
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option value="1">İstanbul Medipol Üniversitesi</option>
-                                <option value="2">Ege Üniversitesi</option>
-                                <option value="3">Bahçeşehir Üniversitesi</option>
-                                <option value="4">9 Eylül Üniversitesi</option>
-                                <option value="5">Kocaeli Üniversitesi</option>
-                                <option value="6">Akdeniz Üniversitesi</option>
-                            </select>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Burs</label>
-                            </div>
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option value="1">%100 Burslu</option>
-                                <option value="2">%75 Burslu</option>
-                                <option value="3">%50 Burslu</option>
-                                <option value="4">%25 Burslu</option>
-                                <option value="5">Ücretli</option>
-                            </select>
-                        </div>
-                        <div class="input-group input-group-md mb-3">
-                           <div class="card-body">
-
-                        <div class="card-body">
-                            <h5 class="card-title"><b> Daha doğru sonuçlar için sıralamanı gir! </b></h5>
-                            <p class="card-text"> Aday sıralama aralığı: </p>
-
-                            <input type="text" > <input type="text" >
-
-                        </div>
-                    </div>
-                        </div>
-                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <header class="password-header"> <b> Tercihler: </b>
-                    </header>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group input-group-md mb-3">
-                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                <option selected>Alan</option>
-                                <option value="1">SAY</option>
-                                <option value="2">TM</option>
-                                <option value="3">TS</option>
-                            </select>
-                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                <option selected>Şehir</option>
-                                <option value="1">İstanbul</option>
-                                <option value="2">İzmir</option>
-                                <option value="3">Ankara</option>
-                                <option value="4">Antalya</option>
-                                <option value="5">İzmit</option>
-                                <option value="6">Giresun</option>
-                                <option value="7">Diyarbakır</option>
-                                <option value="8">Isparta</option>
-                                <option value="9">Kastamonu</option>
-                                <option value="10">Konya</option>
-                            </select>
-                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                <option selected>Üniversite</option>
-                                <option value="1">İstanbul Medipol Üniversitesi</option>
-                                <option value="2">Ege Üniversitesi</option>
-                                <option value="3">Bahçeşehir Üniversitesi</option>
-                                <option value="4">9 Eylül Üniversitesi</option>
-                                <option value="5">Kocaeli Üniversitesi</option>
-                                <option value="6">Akdeniz Üniversitesi</option>
-                            </select>
-                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                <option selected>Bölüm</option>
-                                <option value="1">Bilgisayar Mühendisliği</option>
-                                <option value="2">Mimarlık</option>
-                                <option value="3">İç mimarlık</option>
-                                <option value="4">Endüstri Mühendisliği</option>
-                                <option value="5">Elektrik-elektronik Mühendisliği</option>
-                                <option value="6">Endüstriyel Tasarım</option>
-                                <option value="7">Ticari Dalgıçlık</option>
-                            </select>
+            </div>
+            <div id="middle-col" class="col">
+                <header class="password-header"><b> Tercihler: </b>
+                </header>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group input-group-md mb-3">
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <option selected>Alan</option>
+                            <option value="1">SAY</option>
+                            <option value="2">TM</option>
+                            <option value="3">TS</option>
+                        </select>
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <option selected>Şehir</option>
+                            <option value="1">İstanbul</option>
+                            <option value="2">İzmir</option>
+                            <option value="3">Ankara</option>
+                            <option value="4">Antalya</option>
+                            <option value="5">İzmit</option>
+                            <option value="6">Giresun</option>
+                            <option value="7">Diyarbakır</option>
+                            <option value="8">Isparta</option>
+                            <option value="9">Kastamonu</option>
+                            <option value="10">Konya</option>
+                        </select>
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <option selected>Üniversite</option>
+                            <option value="1">İstanbul Medipol Üniversitesi</option>
+                            <option value="2">Ege Üniversitesi</option>
+                            <option value="3">Bahçeşehir Üniversitesi</option>
+                            <option value="4">9 Eylül Üniversitesi</option>
+                            <option value="5">Kocaeli Üniversitesi</option>
+                            <option value="6">Akdeniz Üniversitesi</option>
+                        </select>
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <option selected>Bölüm</option>
+                            <option value="1">Bilgisayar Mühendisliği</option>
+                            <option value="2">Mimarlık</option>
+                            <option value="3">İç mimarlık</option>
+                            <option value="4">Endüstri Mühendisliği</option>
+                            <option value="5">Elektrik-elektronik Mühendisliği</option>
+                            <option value="6">Endüstriyel Tasarım</option>
+                            <option value="7">Ticari Dalgıçlık</option>
+                        </select>
 
-                        </div>
                     </div>
+                </div>
 
-                    <div class="text-center">
-                        <button type="button" class="btn btn-success btn-sm">ARA</button>
-                    </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-success btn-sm">ARA</button>
+                </div>
 
             </div>
-                <div class="col">  <div class="card" style="background-color: #B09BD5">
+            <div class="col">
+                <div id="last-col" class="card">
+                    <div class="card-body">
                         <div class="input-group input-group-md mb-3">
-                           <div class="card-body">
-
-                        <div class="card-body">
-                           <h5 class="card-title"><b> Araştırman Boşa Gitmesin! </b></h5>
-                            <p class="card-text"> Beğendiğin üniversiteleri kaydedip tercih listeni hazırlamak için üye
+                            <h5 class="card-title"><b> Araştırman Boşa Gitmesin! </b></h5>
+                            <p class="card-text"> Beğendiğin üniversiteleri kaydedip tercih listeni
+                                hazırlamak
+                                için
+                                üye
                                 olmayı unutma. </p>
                             <button type="button" class="btn btn-info" href="/signup/">Üye Ol</button>
 
                         </div>
                     </div>
-                        </div>
-                         </div>
-
-                </div> </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-        </body>
-</html>
+    </html>
 
 
 {% endblock %}
