@@ -10,7 +10,7 @@ urlpatterns = [
     path('unipage/', views.unipage),
     path('profile/', views.profile),
     path('unilist/', views.unilist),
-    path('asistant/', views.asistant),
+    path('assistant/', views.assistant),
 
     path('userprofile/', views.userprofile)
 ]
