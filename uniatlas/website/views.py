@@ -30,3 +30,9 @@ def unipage(request):
 
 def profile(request):
     return render(request, 'website/profile.html')
+
+def unilist(request):
+    return render(request, 'website/unilist.html')
+
+def asistant(request):
+    return render(request, 'website/asistant.html')
