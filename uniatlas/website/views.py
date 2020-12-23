@@ -9,3 +9,17 @@ def home(request):
 
 def resultpage(request):
     return render(request, 'website/resultpage.html')
+
+def login(request):
+    return render(request, 'website/login.html')
+
+
+def signup(request):
+    return render(request, 'website/signup.html')
+
+
+def unisozluk(request):
+    return render(request, 'website/unisozluk.html')
+
+def unipage(request):
+    return render(request, 'website/unipage.html')
