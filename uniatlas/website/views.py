@@ -36,3 +36,6 @@ def unilist(request):
 
 def asistant(request):
     return render(request, 'website/asistant.html')
+
+def userprofile(request):
+    return render(request, 'website/userprofile.html')

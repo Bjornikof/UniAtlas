@@ -1,0 +1,85 @@
+.profile-header {
+    margin-left: 1em;
+    margin-top: 1em;
+    display: flex;
+    color: #3F2C63;
+    font-weight: bold;
+}
+
+.profile-header svg{
+    margin-left: 1em;
+}
+
+.bi {
+    margin-right: 0.5em;
+}
+
+.card {
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-bottom: 3em;
+}
+
+.profile-input {
+    text-align: center;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.profile-comment-header {
+    margin-left: 3em;
+    margin-top: 1em;
+    display: flex;
+    color: #3F2C63;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#comment-section{
+    margin-left: 3em;
+    margin-top: 1em;
+}
+
+.input-group-text {
+    background-color: #B09BD5;
+    color: white;
+}
+
+.input-group {
+    border-color: #B09BD5;
+}
+
+.password-header {
+    margin-bottom: 1em;
+    float: left;
+}
+
+.school-name {
+    color: #3F2C63;
+}
+
+.school-rating {
+    margin-top: 0.1em;
+}
+
+.btn-circle {
+    width: 50px;
+    height: 50px;
+    padding: 7px 10px;
+    border-radius: 25px;
+    border-color: black;
+    font-size: 10px;
+    text-align: center;
+    margin-left: 0.5em;
+}
+
+#delete-button svg {
+    width: 100%;
+    height: 100%;
+}
+#edit-button svg {
+    width: 100%;
+    height: 100%;
+}
