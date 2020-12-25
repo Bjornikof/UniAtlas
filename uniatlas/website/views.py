@@ -27,6 +27,9 @@ def unisozluk(request):
 def unipage(request):
     return render(request, 'website/unipage.html')
 
+def uniedit(request):
+    return render(request, 'website/uniedit.html')
+
 
 def profile(request):
     return render(request, 'website/profile.html')

@@ -1,0 +1,55 @@
+{% include 'website/main.html' %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static "css/unisozluk_login.css" %}">
+
+{% block content %}
+    <div class="d-flex flex-row justify-content-center align-items-center">
+
+        <div class="d-flex flex-column image-edit-card justify-content-center">
+            <h5 style="font-family: 'Times New Roman'; color:#60475a ">— Resim Ekle/Değiştir</h5>
+
+            <div class="text-center">
+                <img src="{% static 'images/ışıküni.jpg' %}" alt="" class="img-thumbnail" style="width: 320px">
+            </div>
+            <div class="custom-file mt-2">
+                <input type="file" class="custom-file-input" id="inputGroupFile04">
+                <label class="custom-file-label" for="inputGroupFile04">jpg,jpeg,png</label>
+            </div>
+            <div class="input-group-append w-100 justify-content-center mt-2">
+                <button class="btn btn-outline btn-block submit-btn w-25"
+                        style="background-color: #60475a; color: #ebeff5" type="button">Yükle
+                </button>
+            </div>
+        </div>
+        <div class="d-flex flex-column edit-card">
+            <span class="mt-5">
+                <h1 style="font-family: 'Times New Roman';color: #322742">Işık Üniversitesi</h1>
+            </span>
+            <h5 style="font-family: 'Times New Roman'; color: #60475a">— Geçmiş</h5>
+            <textarea class="form-control" style="width: 100%; border-radius: unset">
+             </textarea>
+            <div class="d-flex flex-row mt-1">
+                <h5 class="w-50" style="font-family: 'Times New Roman'; color: #60475a">— Fakülteler</h5>
+                <h5 class="w-50" style="font-family: 'Times New Roman'; color: #60475a;">—Seçilenler</h5>
+            </div>
+            <div class="d-flex flex-row">
+                <select class="custom-select faculty-select">
+                    <option selected>Fakülteleri Seçiniz</option>
+                    <option value="1">Mühendislik Fakültesi</option>
+                    <option value="2">Mimarlık Fakültesi</option>
+                    <option value="3">Güzel sanatlar Fakültesi</option>
+                </select>
+                <textarea class="form-control w-50" style="border-radius: unset">
+                </textarea>
+            </div>
+            <h5 class="mt-1" style="font-family: 'Times New Roman'; color: #60475a;">— Kampüs Bilgileri</h5>
+            <input class="form-control w-25 tags-input" placeholder="Etiket" type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" />
+{#            <input  >#}
+            <input class="btn btn-outline btn-block submit-btn w-25 mt-2"
+                   style="background-color: #60475a; color: #ebeff5"
+            type="submit"/>
+        </div>
+    </div>
+{% endblock %}
