@@ -318,3 +318,6 @@ fabric.properties
 # profiling data
 
 # End of https://www.toptal.com/developers/gitignore/api/django,pycharm,python
+uniatlas/uniatlas/__pycache__/
+
+uniatlas/website/__pycache__/
