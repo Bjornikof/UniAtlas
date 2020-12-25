@@ -109,3 +109,44 @@
     padding-right: 1%;
     border-radius: 25px;
 }
+
+/* uni-edit-css
+ */
+
+.image-edit-card{
+    width: 20%;
+    border-radius: 5%;
+    margin-top: 55px;
+    margin-right: 50px;
+    margin-left: -5px;
+    background-color: #cfd8dc;
+    padding: 15px;
+}
+
+.bootstrap-tagsinput {
+    padding: 10px;
+    line-height: 40px;
+}
+
+.bootstrap-tagsinput .tag {
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #b39ddb;
+}
+
+.edit-card {
+    width: 40%;
+}
+
+.submit-btn{
+    border-color: lightgray;
+    background-color: silver;
+    border-radius:unset;
+    color: white;
+}
+
+.faculty-select {
+    width: 40% !important;
+    margin-right: 10%;
+}

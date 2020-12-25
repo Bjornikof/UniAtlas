@@ -1,5 +1,6 @@
 /uniatlas/venv/
-/uniatlas/.idea/
+uniatlas/.idea/
+*/.idea
 
 # Created by https://www.toptal.com/developers/gitignore/api/django,pycharm,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,pycharm,python
@@ -8,10 +9,10 @@
 *.log
 *.pot
 *.pyc
-__pycache__/
+uniatlas/__pycache__/
 local_settings.py
-db.sqlite3
-db.sqlite3-journal
+uniatlas/db.sqlite3
+uniatlas/db.sqlite3-journal
 media
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
