@@ -11,7 +11,6 @@ urlpatterns = [
     path('profile/', views.profile),
     path('unilist/', views.unilist),
     path('assistant/', views.assistant),
-
-    path('userprofile/', views.userprofile)
+    path('userprofile/', views.userprofile),
     path('uniedit/', views.uniedit)
 ]
