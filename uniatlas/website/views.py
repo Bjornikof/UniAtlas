@@ -12,6 +12,10 @@ def resultpage(request):
     return render(request, 'website/resultpage.html')
 
 
+def controlpanel(request):
+    return render(request, 'website/controlpanel.html')
+
+
 def login(request):
     return render(request, 'website/login.html')
 
@@ -26,6 +30,7 @@ def unisozluk(request):
 
 def unipage(request):
     return render(request, 'website/unipage.html')
+
 
 def uniedit(request):
     return render(request, 'website/uniedit.html')
@@ -46,10 +51,10 @@ def assistant(request):
 def userprofile(request):
     return render(request, 'website/userprofile.html')
 
+
 def settings(request):
     return render(request, 'website/settings.html')
 
 
 def settings2(request):
     return render(request, 'website/settings2.html')
-
