@@ -45,3 +45,11 @@ def assistant(request):
 
 def userprofile(request):
     return render(request, 'website/userprofile.html')
+
+def settings(request):
+    return render(request, 'website/settings.html')
+
+
+def settings2(request):
+    return render(request, 'website/settings2.html')
+

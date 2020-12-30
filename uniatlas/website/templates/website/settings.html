@@ -1,0 +1,231 @@
+{% include 'website/main.html' %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/unisozluk_login.css' %}">
+{% block content %}
+<html>
+<head>
+<style type="text/css">
+        .asd-img {
+   min-height: 100%;
+   background-image: url("/static/images/bgg.jpg");
+   background-size: cover;
+   background: repeat;
+   background-position: center center;
+   flex-wrap: nowrap;
+}
+      </style>
+
+   </head>
+<body style="background-image: url(/static/images/bgg.jpg)">
+
+<center >
+
+    <div class="d-flex flex-column align-items-center" style="width: 75%">
+
+
+        <div class="d-flex flex-row login-card" style="background-color: #d2d5e3">
+
+            <div class="container" style="width: 300px">
+
+
+                <div class="col" style="width: 300px" align="left">
+
+
+                    <div class="d-flex flex-column align-items-center align-self-center login-info-panel"
+                         style="margin-left: 20px">
+
+
+                        <div class="d-flex flex-column align-items-center" style="width: 100%">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+
+                                    <P></P>
+                                </div>
+
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+
+
+                                    <h2 class="mb-md-5" style="color: #60475a; font-family: 'Times New Roman'">
+                                        ⚙️<b>Ayarlar</b></h2>
+                                </div>
+
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+
+
+                                    <input class="btn btn-primary mt-3" type="button"
+                                           style="background-color: #59788E; width: 150px"
+                                           value="Şifre Değiştir">
+                                </div>
+
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+
+
+                                    <input class="btn btn-primary mt-3" type="button"
+                                           style="background-color: #59788E; width: 150px"
+                                           value="E-mail Değiştir">
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="input-group mt-2">
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row align-items-end" style="background-color:#60475a; width: 7px">
+                <div class="col">
+
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="col" align="left">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+
+
+                        </div>
+
+
+                    </div>
+
+                    <header class="password-header"><h4 class="mb-md-5"
+                                                        style="color: #60475a; font-family: 'Times New Roman'"><b>Şifreyi
+                        Değiştir </b></h4>
+                    </header>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group input-group-md mb-3">
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+
+                                <label class="input-group-text">Mevcut Şifre</label>
+                                <input type="text"></input>
+                            </div>
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+
+
+                            </div>
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+
+
+                            </div>
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Yeni Şifre </label>
+                                <input type="text"></input>
+                            </div>
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+
+
+                            </div>
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Yeni Şifre Tekrar</label>
+                                <input type="text"></input>
+
+                            </div>
+
+                        </div>
+                        <div class="input-group input-group-md mb-3">
+                            <div class="card-body">
+
+
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <h1></h1>
+
+                    </div>
+
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+
+                        <h1><br> <br> <br> <br> <br> <br> <br></h1>
+                    </div>
+
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+
+
+                        <input class="btn btn-primary mt-3" type="button"
+                               style="background-color: #59788E; width: 150px"
+                               value="Onayla">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row align-items-end">
+                <div class="col">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</center>
+
+
+</body>
+
+</html>
+{% endblock %}
