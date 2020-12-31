@@ -55,6 +55,9 @@ def userprofile(request):
 def settings(request):
     return render(request, 'website/settings.html')
 
+def adduni(request):
+    return render(request, 'website/adduni.html')
+
 
 def settings2(request):
     return render(request, 'website/settings2.html')

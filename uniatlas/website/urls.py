@@ -15,5 +15,6 @@ urlpatterns = [
     path('userprofile/', views.userprofile),
     path('uniedit/', views.uniedit),
     path('settings/', views.settings),
-    path('settings2/', views.settings2)
+    path('settings2/', views.settings2),
+    path('adduni/', views.adduni)
 ]
