@@ -321,3 +321,5 @@ fabric.properties
 uniatlas/uniatlas/__pycache__/
 
 uniatlas/website/__pycache__/
+
+*.sqlite3
