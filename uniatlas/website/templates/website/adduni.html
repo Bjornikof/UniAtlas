@@ -1,136 +1,46 @@
 {% include 'website/main.html' %}
 
 {% load static %}
+{% load crispy_forms_tags %}
 
 <link rel="stylesheet" type="text/css" href="{% static "css/unisozluk_login.css" %}">
 
 {% block content %}
 
-    <div class="d-flex flex-row justify-content-center align-items-center">
-
-        <div class="d-flex flex-column image-edit-card justify-content-center" >
-
-            <h5 style="font-family: 'Times New Roman'; color:#60475a ">— Üniversite Adı Ekle</h5>
-              <input class="form-control  tags-input"  type="text" style="width: 100%" />
-
-            <p><br></p>
-            <h5 style="font-family: 'Times New Roman'; color:#60475a ">— Fotoğraf Ekle</h5>
-
-            <div class="text-center">
-                <img src="{% static 'images/2404969.jpg' %}" alt="" class="img-thumbnail" style="width: 320px">
+    <form {% if edit %}
+        action="/admin/edit/university/{{ pk }}"
+    {% else %}
+        action="/admin/add/university"
+    {% endif %} method="post" class="d-flex flex-column justify-content-center mb-5">
+        <div class="d-flex flex-row justify-content-center mt-5 mb-5">
+            {% csrf_token %}
+            <div class="d-flex flex-column image-edit-card align-self-start">
+                <p><br></p>
+                <h5 style="font-family: 'Times New Roman'; color:#60475a ">— Fotoğraf Ekle</h5>
+                <div class="text-center">
+                    <img src="{% static 'images/2404969.jpg' %}" alt="" class="img-thumbnail" style="width: 320px">
+                </div>
+                <p><br></p>
+                <div class="custom-file mt-2">
+                    {{ form.image|as_crispy_field }}
+                </div>
+                <p><br></p>
             </div>
-            <p><br></p>
-            <div class="custom-file mt-2">
-                <input type="file" class="custom-file-input" id="inputGroupFile04">
-                <label class="custom-file-label" for="inputGroupFile04">jpg,jpeg,png</label>
-            </div> <p><br></p>
-            <h5 style="font-family: 'Times New Roman'; color: #60475a">— Geçmiş</h5>
-
-            <textarea class="form-control" style="width: 100%; border-radius: unset"   >Geçmiş Ekle
-             </textarea>
-            <p><br></p><div class="input-group-append w-100 justify-content-center mt-2">
-                <button class="btn btn-outline btn-block submit-btn w-25"
-                        style="background-color: #60475a; color: #ebeff5" type="button">Yükle
-                </button>
-
-
+            <div class="d-flex flex-column">
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="w-100">
+                        {{ form.name | as_crispy_field }}
+                        {{ form.city | as_crispy_field }}
+                        {{ form.history | as_crispy_field }}
+                        {{ form.types | as_crispy_field }}
+                    </div>
+                </div>
             </div>
         </div>
-
-
-
-
-
-
-        <div class="d-flex flex-column edit-card">
-
-
-
-
- <p> <br></p>
-
-            <div class="d-flex flex-row mt-1">
-                <h5 class="w-50" style="font-family: 'Times New Roman'; color: #60475a">— Fakülteler</h5>
-                <h5 class="w-50" style="font-family: 'Times New Roman'; color: #60475a;">—Seçilenler</h5>
-            </div>
-            <div class="d-flex flex-row">
-                <select class="custom-select faculty-select">
-                    <option selected>Fakülteleri Seçiniz</option>
-                    <option value="1">Mühendislik Fakültesi</option>
-                    <option value="2">Mimarlık Fakültesi</option>
-                    <option value="3">Güzel sanatlar Fakültesi</option>
-                </select>
-                            <input class="form-control w-25 tags-input"  type="text" value="Mühendislik Fakültesi, Hukuk Fakültesi" data-role="tagsinput" />
-
-            </div>
-
-
-
-
-<div> <p> <br></p></div>
-            <div><div class="d-flex flex-row mt-1">
-                <h5 class="w-50" style="font-family: 'Times New Roman'; color: #60475a">— Bölümler</h5>
-                <h5 class="w-50" style="font-family: 'Times New Roman'; color: #60475a;">—Seçilenler</h5>
-            </div>
-            <div class="d-flex flex-row">
-                <select class="custom-select faculty-select">
-                    <option selected>Bölüm Seçiniz</option>
-                    <option value="1">Bilgisayar Mühendisliği(Tam Burslu)</option>
-                    <option value="2">Yazılım Mühendisliği(%25 Burslu)</option>
-                    <option value="3">Makine Mühendisliği(%50 Burslu)</option>
-                </select>
-                            <input class="form-control w-25 tags-input"  type="text" value="Bilgisayar Mühendisliği(%75 Burslu)" data-role="tagsinput"  />
-
-            </div>
-
-
-<div> <p> <br></p></div>
-
+        <div class="w-100 d-flex justify-content-center">
+            <button class="btn btn-primary w-25" type="submit">Gönder</button>
         </div>
-        <div><div class="d-flex flex-row mt-1">
-                <h5 class="w-50" style="font-family: 'Times New Roman'; color: #60475a">— Şehir</h5>
-                <h5 class="w-50" style="font-family: 'Times New Roman'; color: #60475a;">— Sıralama</h5>
-            </div>
-            <div class="d-flex flex-row">
-                <select class="custom-select faculty-select">
-                    <option selected>Şehir Seçiniz</option>
-                    <option value="1">İzmir</option>
-                    <option value="2">İstanbul</option>
-                    <option value="3">Ankara</option>
-                </select>
-                                            <input class="form-control  tags-input"  type="text" style="width: 30%" />
+    </form>
 
 
-            </div>
-
-
- <p> <br></p>
-            <h5 class="mt-1" style="font-family: 'Times New Roman'; color: #60475a;">— Kampüs Bilgileri</h5>
-
-            <div><div class="d-flex flex-row mt-1">
-
-            </div>
-            <div class="d-flex flex-row">
-                <select class="custom-select faculty-select">
-                    <option selected>Bilgi Ekleyin</option>
-                    <option value="1">Kırtasiye</option>
-                    <option value="2">Kütüphane</option>
-                    <option value="3">Yemekhane</option>
-                </select>
-<input class="form-control w-25 tags-input"  type="text" value="Hazırlık Okulu, Yemekhane, Sosyal Alan" data-role="tagsinput"/>
-
-            </div>
-
-           <p> <br></p>
-        </div>
-        </div>
-            <button class="btn btn-outline btn-block submit-btn w-25"
-                        style="background-color: #60475a; color: #ebeff5" type="button">Üniversite Ekle
-                </button>
-        </div>
-
-
-
-
-    </div>
 {% endblock %}

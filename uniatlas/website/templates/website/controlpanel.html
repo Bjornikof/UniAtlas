@@ -3,70 +3,95 @@
 <link rel="stylesheet" type="text/css" href="{% static '/css/controlpanel.css' %}">
 {% block content %}
 
-<header class="result-header" style="font-family:'Comic Sans MS'" color="#120923">KONTROL PANELİ</header>
+    <header class="result-header" style="font-family:'Comic Sans MS'" color="#120923">KONTROL PANELİ</header>
 
-<div id="control-exp" class="d-flex justify-content-left">
-    <p class="text-area" style="font-family:'Comic Sans MS'">Üniversite ekleme, çıkarma ve güncelleme.</p>
-</div>
+    <div id="control-exp" class="d-flex justify-content-left">
+        <p class="text-area" style="font-family:'Comic Sans MS'">Üniversite ekleme, çıkarma ve güncelleme.</p>
+    </div>
 
 
-<div class="row justify-content-md-center">
-    <div class="col-md-9 ">
-        <div id="add-uni-btn" class="d-flex flex-row-reverse">
-            <button class="btn btn-success btn-sm" type="button">Üniversite Ekle</button>
-        </div>
-        <div class="searchbar">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Arama"
-                       aria-label="Recipient's username"
-                       aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">Ara</button>
+    <div class="row justify-content-md-center">
+        <div class="col-md-9 ">
+            <div class="d-flex flex-row-reverse">
+                <div id="add-uni-btn" class="d-flex flex-row-reverse mr-1">
+                    <a href="/admin/add/departmant">
+                        <button class="btn btn-success btn-sm" type="button">Departman Ekle</button>
+                    </a>
+                </div>
+                <div id="add-uni-btn" class="d-flex flex-row-reverse mr-1">
+                    <a href="/admin/add/faculty">
+                        <button class="btn btn-success btn-sm" type="button">Fakülte Ekle</button>
+                    </a>
+                </div>
+                <div id="add-uni-btn" class="d-flex flex-row-reverse mr-1">
+                    <a href="/admin/add/university">
+                        <button class="btn btn-success btn-sm" type="button">Üniversite Ekle</button>
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-bordered ">
-                <thead>
-                <tr class="result-table-header">
-                    <th scope="col">Üniversite</th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="result-table-row">
-                    <td>İstanbul Gedik Üniversitesi</td>
-                    <td class="result-button-group">
-                        <button type="button" class="btn btn-info btn-sm">Güncelle</button>
-                        <button type="button" class="btn btn-danger btn-sm">SİL</button>
-
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="searchbar">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Arama"
+                           aria-label="Recipient's username"
+                           aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">Ara</button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table id="table" class="table table-bordered ">
+                    <thead>
+                    <tr class="result-table-header">
+                        <th scope="col">Üniversite</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    {% for datum in data %}
+                        {% if datum.type == 'university' %}
+                            <tr class="result-table-row" data-tt-id="{{ datum.id }}" data-tt-level="0">
+                                <td>{{ datum.name }}</td>
+                                <td class="result-button-group">
+                                    <a href="/admin/edit/university/{{ datum.pk }}">
+                                        <button type="button" class="btn btn-info btn-sm">Güncelle</button>
+                                    </a>
+                                    <a href="/admin/delete/university/{{ datum.pk }}">
+                                        <button type="button" class="btn btn-danger btn-sm">SİL</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% elif datum.type == 'faculty' %}
+                            <tr class="result-table-row" data-tt-id="{{ datum.id }}" data-tt-parent-id="{{ datum.parent_id }}" data-tt-level="1">
+                                <td style="padding-left: 50px">{{ datum.name }}</td>
+                                <td class="result-button-group">
+                                    <a href="/admin/edit/faculty/{{ datum.pk }}">
+                                        <button type="button" class="btn btn-info btn-sm">Güncelle</button>
+                                    </a>
+                                    <a href="/admin/delete/faculty/{{ datum.pk }}">
+                                        <button type="button" class="btn btn-danger btn-sm">SİL</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr class="result-table-row" data-tt-id="{{ datum.id }}" data-tt-parent-id="{{ datum.parent_id }}" data-tt-level="2">
+                                <td style="padding-left: 75px">{{ datum.name }}</td>
+                                <td class="result-button-group">
+                                    <a href="/admin/edit/departmant/{{ datum.pk }}">
+                                        <button type="button" class="btn btn-info btn-sm">Güncelle</button>
+                                    </a>
+                                    <a href="/admin/delete/departmant/{{ datum.pk }}">
+                                        <button type="button" class="btn btn-danger btn-sm">SİL</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
         </div>
     </div>
-</div>
-<div class="row justify-content-md-center">
-    <nav aria-label="pagination-result">
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div>
-
+    <script>
+		com_github_culmat_jsTreeTable.register(this)
+		treeTable($('#table'))
+    </script>
 {% endblock %}
