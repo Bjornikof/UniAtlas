@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template.defaultfilters import register
 
 from .models import Enrolee, Admin, University, Faculties, Department, SCHOLARSHIP_CHOICES
-from .forms import UniForm,FacultyForm,DepartForm
+from .forms import UniForm,FacultyForm,DepartForm,searchbyuni
 
 
 # Create your views here.
@@ -53,6 +53,11 @@ def to_class_name(value):
 
 
 def controlpanel(request):
+
+    item = request.GET
+    uni_form = searchbyuni(item or None)
+
+
     results = []
 
     scholarships = {
@@ -62,8 +67,11 @@ def controlpanel(request):
         2: '%50 Burslu',
         3: '%25 Burslu'
     }
+    if uni_form.is_valid():
+        unis = University.objects.filter(name__contains=uni_form.cleaned_data['search_key'])
+    else:
+        unis = University.objects.all()
 
-    unis = University.objects.all()
     for i, university in enumerate(unis):
         uni_obj = {}
         uni_obj['name'] = university.name

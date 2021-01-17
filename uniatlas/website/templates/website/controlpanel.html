@@ -29,16 +29,19 @@
                     </a>
                 </div>
             </div>
+
+        <form action="/admin/controlpanel" method="get">
             <div class="searchbar">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Arama"
+                    <input name="search_key" type="text" class="form-control" placeholder="Arama"
                            aria-label="Recipient's username"
                            aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Ara</button>
+                        <button class="btn btn-outline-secondary" type="submit">Ara</button>
                     </div>
                 </div>
             </div>
+        </form>
             <div class="table-responsive">
                 <table id="table" class="table table-bordered ">
                     <thead>

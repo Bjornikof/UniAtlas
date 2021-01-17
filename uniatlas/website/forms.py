@@ -62,3 +62,5 @@ class DepartForm(forms.ModelForm):
             'score'
         ]
 
+class searchbyuni(forms.Form):
+    search_key = forms.CharField()
