@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.messages.storage import session
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template.defaultfilters import register
 
 from .models import Enrolee, Admin, University, Faculties, Department, SCHOLARSHIP_CHOICES
-from .forms import UniForm,FacultyForm,DepartForm,searchbyuni
+from .forms import UniForm, FacultyForm, DepartForm, searchbyuni, UniSearchForm
 
 
 # Create your views here.
@@ -14,13 +15,38 @@ def home(request):
 
 
 def resultpage(request):
-    return render(request, 'website/resultpage.html')
+    form = UniSearchForm(request.POST or None)
 
+    if form.is_valid():
+        results = []
+        if form.cleaned_data['university']:
+            faculties = Faculties.objects.filter(university=form.cleaned_data['university'])
+            results.append(Department.objects.filter(faculty__in=faculties))
 
-def controlpanel(request):
+        if form.cleaned_data['total_year']:
+            results.append(Department.objects.filter(total_year=form.cleaned_data['total_year']))
+        if form.cleaned_data['scholarship']:
+            results.append(Department.objects.filter(scholarship__in=form.cleaned_data['scholarship']))
+        if form.cleaned_data['score'] is not None:
+            results.append(Department.objects.filter(score__lte=form.cleaned_data['score']))
+        if form.cleaned_data['edu_field']:
+            for faculty in Faculties.objects.filter(edu_field=form.cleaned_data['edu_field']):
+                results.append(Department.objects.filter(faculty=faculty))
 
+        if form.cleaned_data['city']:
+            for university in University.objects.filter(city__in=form.cleaned_data['city']):
+                results.append(Department.objects.filter(faculty__in=Faculties.objects.filter(university=university)))
+        if len(results) > 0:
+            search_results = set(results[0])
+            for result in results[1:]:
+                search_results = search_results.intersection(result)
+        else:
+            search_results = Department.objects.all()
 
-    return render(request, '')
+    context = {
+        'data': search_results,
+    }
+    return render(request, 'website/resultpage.html', context)
 
 
 def login(request):
@@ -45,6 +71,10 @@ def uniedit(request):
 
 def profile(request):
     return render(request, 'website/profile.html')
+
+
+def unilist(request):
+    return render(request, 'website/unilist.html')
 
 
 @register.filter
@@ -105,7 +135,11 @@ def controlpanel(request):
 
 
 def assistant(request):
-    return render(request, 'website/assistant.html')
+    form = UniSearchForm(None)
+    context = {
+        'form': form
+    }
+    return render(request, 'website/assistant.html', context)
 
 
 def userprofile(request):

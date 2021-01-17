@@ -9,7 +9,7 @@ from django.contrib.auth import (
     logout,
 
 )
-from .models import University, Faculties, Department, SCHOLARSHIP_CHOICES
+from .models import University, Faculties, Department, SCHOLARSHIP_CHOICES, TOTAL_YEAR_CHOICES, EDU_FIELD_CHOICES
 
 User = get_user_model()
 
@@ -64,3 +64,16 @@ class DepartForm(forms.ModelForm):
 
 class searchbyuni(forms.Form):
     search_key = forms.CharField()
+
+
+class UniSearchForm(forms.Form):
+    total_year = forms.ChoiceField(label='Türü', choices=TOTAL_YEAR_CHOICES, required=False)
+    university = forms.ModelChoiceField(label='Üniversite', queryset=University.objects.all(), required=False)
+    scholarship = forms.MultipleChoiceField(label='Burs Tipi', choices=SCHOLARSHIP_CHOICES, required=False)
+    score = forms.FloatField(label='Puan', required=False)
+    edu_field = forms.ChoiceField(label='Alan', choices=EDU_FIELD_CHOICES, required=False)
+    city = forms.MultipleChoiceField(label='Şehir', choices=[], required=False)
+    
+    def __init__(self, *args, **kwargs):
+        super(UniSearchForm, self).__init__(*args, **kwargs)
+        self.fields['city'].choices = University.objects.values_list('city', 'city').distinct()
