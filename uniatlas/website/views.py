@@ -83,8 +83,7 @@ def signup(request):
             form = CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
-                user = form.cleaned_data.get('username')
-                messages.success(request, 'Kaydınız başarılı bir şekilde tamamlandı ' + user)
+
                 return redirect('login')
 
     return render(request, 'website/signup.html', {'form': form})
@@ -100,6 +99,7 @@ def unipage(request):
 
 def uniedit(request):
     return render(request, 'website/uniedit.html')
+
 
 @login_required(login_url='login')
 def profile(request):
@@ -177,9 +177,11 @@ def assistant(request):
 def userprofile(request):
     return render(request, 'website/userprofile.html')
 
+
 @login_required(login_url='login')
 def settings(request):
     return render(request, 'website/settings.html')
+
 
 @login_required(login_url='login')
 def settings2(request):

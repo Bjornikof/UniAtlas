@@ -13,7 +13,6 @@
             <form method="POST" action="">
                 <div class="col">
                     {% csrf_token %}
-                    {{form.errors}}
                     {{form.username|as_crispy_field}}
                     {{form.email|as_crispy_field}}
                     {{form.education|as_crispy_field}}

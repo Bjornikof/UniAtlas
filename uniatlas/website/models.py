@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+User._meta.get_field('email')._unique = True
+
+
 SCHOLARSHIP_CHOICES = [
     (-1, 'Ücretsiz'),
     (0, '%100 Burslu'),
