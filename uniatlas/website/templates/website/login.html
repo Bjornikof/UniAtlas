@@ -9,8 +9,7 @@
 <div class="d-flex flex-column align-items-center" style="width: 100%">
     <div class="d-flex flex-row login-card">
         <img class="align-self-start login-img" src="{% static 'images/loginimg.jpg' %}" alt=""/>
-        <form method="POST" action="">
-            <div class="d-flex flex-column align-items-center align-self-center login-info-panel">
+        <form class="d-flex flex-column align-items-center align-self-center login-info-panel" method="POST" action="">
                 <h1 class="mb-md-5" style="color: #60475a; font-family: 'Times New Roman'">Üye Girişi</h1>
                 {% for message in messages %}
                 <p id="messages">{{messages}}</p>
@@ -26,8 +25,7 @@
                        value="Giriş">
 
                 <a href="signup" class="mt-4">Henüz üye olmadın mı? Nasıl olur?</a>
-
-            </div>
+        
         </form>
     </div>
 </div>
