@@ -14,8 +14,8 @@ class CreateUserForm(UserCreationForm):
     username = forms.CharField(label='username', widget=forms.TextInput(attrs={'placeholder':'Kullanıcı Adı'}))
     email = forms.EmailField(label='email', widget=forms.TextInput(attrs={'placeholder': 'E-mail'}))
     education = forms.ChoiceField(widget=forms.Select, choices=EDU_CHOICES, )
-    password1 = forms.CharField(label='password1', widget=forms.TextInput(attrs={'placeholder': 'Şifre'}))
-    password2 = forms.CharField(label='password2', widget=forms.TextInput(attrs={'placeholder': 'Şifre(Tekrar)'}))
+    password1 = forms.CharField(label='password1', widget=forms.PasswordInput(attrs={'placeholder': 'Şifre'}))
+    password2 = forms.CharField(label='password2', widget=forms.PasswordInput(attrs={'placeholder': 'Şifre(Tekrar)'}))
 
     class Meta:
         model = User
