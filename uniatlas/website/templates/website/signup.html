@@ -4,39 +4,50 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="d-flex flex-column align-items-center" style="width: 100%">
+<div class="jumbotron" style=" background: none">
+    <div class="d-flex justify-content-center">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row">
+                    <div class="d-flex flex-column">
+                        <div class="d-flex flex-column align-items-center align-self-center login-info-panel"
+                             style="margin-left: 45px">
+                            <h1 class="mb-md-3" style="color: #60475a; font-family: 'Times New Roman'">Üye Oluştur</h1>
+                            <form method="POST" action="">
+                                <div class="col">
+                                    {% csrf_token %}
+                                    {{form.username|as_crispy_field}}
+                                    {{form.email|as_crispy_field}}
+                                    {{form.education|as_crispy_field}}
+                                    {{form.password1|as_crispy_field}}
+                                    {{form.password2|as_crispy_field}}
+                                    <input class="btn btn-primary btn-md mt-3" type="submit"
+                                           style="background-color: #59788E; width: 150px"
+                                           value="Üye Ol" name="register">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <div class="container">
+                            <img class="align-self-start sign-img img-fluid" src="{% static 'images/2404969.jpg' %}" alt=""/>
 
-    <div class="d-flex flex-row login-card">
+                            <div class="row align-items-end">
+                                <div class="col">
+                                    <a href="/login" class="text-right" style="margin-left: 85px">Zaten üye misin? O
+                                        zaman vakit
+                                        kullanıcı girişi yapma vaktidir</a>
 
-        <div class="d-flex flex-column align-items-center align-self-center login-info-panel" style="margin-left: 45px">
-            <h1 class="mb-md-3" style="color: #60475a; font-family: 'Times New Roman'">Üye Oluştur</h1>
-            <form method="POST" action="">
-                <div class="col">
-                    {% csrf_token %}
-                    {{form.username|as_crispy_field}}
-                    {{form.email|as_crispy_field}}
-                    {{form.education|as_crispy_field}}
-                    {{form.password1|as_crispy_field}}
-                    {{form.password2|as_crispy_field}}
-                    <input class="btn btn-primary btn-md mt-3" type="submit"
-                           style="background-color: #59788E; width: 150px"
-                           value="Üye Ol" name="register">
-                </div>
-            </form>
-        </div>
-
-        <div class="container">
-            <img class="align-self-start sign-img" src="{% static 'images/2404969.jpg' %}" alt=""/>
-
-            <div class="row align-items-end">
-                <div class="col">
-                    <a href="/login" class="text-right" style="margin-left: 85px">Zaten üye misin? O zaman vakit
-                        kullanıcı girişi yapma vaktidir</a>
-
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 {% endblock %}
 
