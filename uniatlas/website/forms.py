@@ -1,12 +1,7 @@
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import (
-    authenticate,
     get_user_model,
-    login,
-    logout,
 
 )
 from .models import University, Faculties, Department, SCHOLARSHIP_CHOICES, TOTAL_YEAR_CHOICES, EDU_FIELD_CHOICES
@@ -14,14 +9,25 @@ from .models import University, Faculties, Department, SCHOLARSHIP_CHOICES, TOTA
 User = get_user_model()
 
 
-class RegisterForm(UserCreationForm):
-    first_name = forms.CharField(max_length=100, help_text='First Name')
-    last_name = forms.CharField(max_length=100, help_text='Last Name')
-    email = forms.EmailField(max_length=150, help_text='Email')
+class CreateUserForm(UserCreationForm):
+    EDU_CHOICES = [('Eğitim',(('1','Lise'),('1','Üniversite'),('1','Mezun'),))];
+    username = forms.CharField(label='username', widget=forms.TextInput(attrs={'placeholder':'Kullanıcı Adı'}))
+    email = forms.EmailField(label='email', widget=forms.TextInput(attrs={'placeholder': 'E-mail'}))
+    education = forms.ChoiceField(widget=forms.Select, choices=EDU_CHOICES, )
+    password1 = forms.CharField(label='password1', widget=forms.TextInput(attrs={'placeholder': 'Şifre'}))
+    password2 = forms.CharField(label='password2', widget=forms.TextInput(attrs={'placeholder': 'Şifre(Tekrar)'}))
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+        fields = ('username', 'email', 'education', 'password1', 'password2')
+
+    def __init__(self, *args, **kwargs):
+        super(CreateUserForm, self).__init__(*args, **kwargs)
+        self.fields['username'].label = False
+        self.fields['email'].label = False
+        self.fields['education'].label = False
+        self.fields['password1'].label = False
+        self.fields['password2'].label = False
 
 
 class PasswordResetRequestForm(forms.Form):

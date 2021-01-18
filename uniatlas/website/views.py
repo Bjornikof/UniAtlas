@@ -1,11 +1,13 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.messages.storage import session
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.template.defaultfilters import register
+import logging
 
 from .models import Enrolee, Admin, University, Faculties, Department, SCHOLARSHIP_CHOICES
-from .forms import UniForm, FacultyForm, DepartForm, searchbyuni, UniSearchForm
+from .forms import UniForm, FacultyForm, DepartForm, searchbyuni, UniSearchForm, CreateUserForm
 
 
 # Create your views here.
@@ -49,12 +51,43 @@ def resultpage(request):
     return render(request, 'website/resultpage.html', context)
 
 
-def login(request):
+def loginPage(request):
+    if request.user.is_authenticated:
+        return redirect('unilist')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect('unilist')
+            else:
+                messages.info(request, 'Kullanıcı Adı veya Şifre hatalı.')
     return render(request, 'website/login.html')
 
 
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+
+
 def signup(request):
-    return render(request, 'website/signup.html')
+    if request.user.is_authenticated:
+        return redirect('unilist')
+    else:
+        form = CreateUserForm();
+
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Kaydınız başarılı bir şekilde tamamlandı ' + user)
+                return redirect('login')
+
+    return render(request, 'website/signup.html', {'form': form})
 
 
 def unisozluk(request):
@@ -68,11 +101,12 @@ def unipage(request):
 def uniedit(request):
     return render(request, 'website/uniedit.html')
 
-
+@login_required(login_url='login')
 def profile(request):
     return render(request, 'website/profile.html')
 
 
+@login_required(login_url='login')
 def unilist(request):
     return render(request, 'website/unilist.html')
 
@@ -83,10 +117,8 @@ def to_class_name(value):
 
 
 def controlpanel(request):
-
     item = request.GET
     uni_form = searchbyuni(item or None)
-
 
     results = []
 
@@ -145,11 +177,11 @@ def assistant(request):
 def userprofile(request):
     return render(request, 'website/userprofile.html')
 
-
+@login_required(login_url='login')
 def settings(request):
     return render(request, 'website/settings.html')
 
-
+@login_required(login_url='login')
 def settings2(request):
     return render(request, 'website/settings2.html')
 
@@ -168,7 +200,7 @@ def add_uni(request):
             return HttpResponseRedirect('/admin/controlpanel')
 
     context = {
-            "form": form
+        "form": form
     }
     return render(request, 'website/adduni.html', context)
 
@@ -185,7 +217,7 @@ def add_faculty(request):
             return HttpResponseRedirect('/admin/controlpanel')
 
     context = {
-            "faculty_form": faculty_form
+        "faculty_form": faculty_form
     }
     return render(request, 'website/add_faculty.html', context)
 
@@ -265,7 +297,7 @@ def add_departmant(request):
                 return HttpResponseRedirect('/admin/controlpanel')
 
     context = {
-            "departmant_form": departmant_form
+        "departmant_form": departmant_form
     }
     return render(request, 'website/add_departmant.html', context)
 
@@ -289,7 +321,3 @@ def delete_departmant(request, pk):
     query = get_object_or_404(Department, pk=pk)
     query.delete()
     return HttpResponseRedirect('/admin/controlpanel')
-
-
-
-

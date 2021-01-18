@@ -1,48 +1,43 @@
 {%  include 'website/main.html' %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static '/css/unisozluk_login.css' %}">
+{% load crispy_forms_tags %}
 {% block content %}
 
-    <div class="d-flex flex-column align-items-center" style="width: 100%">
+<div class="d-flex flex-column align-items-center" style="width: 100%">
 
-      <div class= "d-flex flex-row login-card">
+    <div class="d-flex flex-row login-card">
 
-       <div class="d-flex flex-column align-items-center align-self-center login-info-panel" style="margin-left: 45px">
+        <div class="d-flex flex-column align-items-center align-self-center login-info-panel" style="margin-left: 45px">
             <h1 class="mb-md-3" style="color: #60475a; font-family: 'Times New Roman'">Üye Oluştur</h1>
+            <form method="POST" action="">
+                <div class="col">
+                    {% csrf_token %}
+                    {{form.errors}}
+                    {{form.username|as_crispy_field}}
+                    {{form.email|as_crispy_field}}
+                    {{form.education|as_crispy_field}}
+                    {{form.password1|as_crispy_field}}
+                    {{form.password2|as_crispy_field}}
+                    <input class="btn btn-primary btn-md mt-3" type="submit"
+                           style="background-color: #59788E; width: 150px"
+                           value="Üye Ol" name="register">
+                </div>
+            </form>
+        </div>
 
-            <input type="text" class="form-control mb-sm-2" placeholder="Kullanıcı Adı" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="container">
+            <img class="align-self-start sign-img" src="{% static 'images/2404969.jpg' %}" alt=""/>
 
-            <input type="text" class="form-control mt-2.5" placeholder="E-mail" aria-label="Username" aria-describedby="basic-addon1">
+            <div class="row align-items-end">
+                <div class="col">
+                    <a href="/login" class="text-right" style="margin-left: 85px">Zaten üye misin? O zaman vakit
+                        kullanıcı girişi yapma vaktidir</a>
 
-            <div class="input-group mt-2">
-               <select class="custom-select" id="inputGroupSelect04">
-                  <option selected>Eğitim</option>
-                      <option value="1">Lise</option>
-                          <option value="2">Üniversite</option>
-                              <option value="3">Mezun</option>
-               </select>
+                </div>
             </div>
-
-           <input type="password" id="inputPassword6" placeholder="Şifre" class="form-control mt-2" aria-describedby="passwordHelpInline">
-
-           <input type="password" id="inputPassword6" placeholder="Şifre (Tekrar)" class="form-control mt-2" aria-describedby="passwordHelpInline">
-
-           <input class="btn btn-primary btn-md mt-3" type="button" style="background-color: #59788E; width: 150px" value="Üye Ol">
-
-       </div>
-
-     <div class="container">
-       <img class="align-self-start sign-img" src= "{% static 'images/2404969.jpg' %}" alt="" />
-
-       <div class="row align-items-end">
-          <div class="col">
-       <a href="/login" class="text-right" style="margin-left: 85px">Zaten üye misin? O zaman vakit kullanıcı girişi yapma vaktidir</a>
-
-      </div>
-       </div>
-     </div>
-   </div>
+        </div>
+    </div>
 </div>
-
 {% endblock %}
 

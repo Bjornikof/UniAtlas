@@ -11,11 +11,20 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="/unisozluk">ÜniSözlük </a>
-            <a class="nav-item nav-link" href="/assistant" >Tercih Asistanı</a>
+            <a class="nav-item nav-link" href="/assistant">Tercih Asistanı</a>
             <a class="nav-item nav-link" href="#" style="display: none;">Tercih Listesi</a>
-            <a class="nav-item nav-link" href="/login" >Giriş</a>
+            <a class="nav-item nav-link" href="/login">Giriş</a>
             <a class="nav-item nav-link" href="/admin/controlpanel">Kontrol Panel</a>
-            <a class="nav-item nav-link" href="/profile">Profile</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    {{request.user}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/profile">Profil</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Çıkış</a>
+                </div>
+            </li>
 
         </div>
     </div>
