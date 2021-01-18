@@ -82,8 +82,8 @@ def signup(request):
         if request.method == 'POST':
             form = CreateUserForm(request.POST)
             if form.is_valid():
-                form.save()
-
+                registered_user = form.save()
+                Enrolee(user=registered_user).save()
                 return redirect('login')
 
     return render(request, 'website/signup.html', {'form': form})
@@ -323,3 +323,16 @@ def delete_departmant(request, pk):
     query = get_object_or_404(Department, pk=pk)
     query.delete()
     return HttpResponseRedirect('/admin/controlpanel')
+
+def user_type(request):
+    user = request.user
+    if not user.is_anonymous:
+        enrolee = Enrolee.objects.filter(user=user)
+        user_type = 'admin'
+        if len(enrolee) > 0:
+            user_type = 'enrolee'
+        return {
+            'user': user,
+            'user_type': user_type
+        }
+    return {}
