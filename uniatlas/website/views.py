@@ -80,7 +80,10 @@ def logoutUser(request):
 
 def signup(request):
     if request.user.is_authenticated:
-        return redirect('unilist')
+        if request.user.is_superuser:
+            return redirect('controlpanel')
+        else:
+            return redirect('unilist')
     else:
         form = CreateUserForm();
 
