@@ -16,7 +16,7 @@ urlpatterns = [
     path('uniedit/', views.uniedit),
     path('settings/', views.settings),
     path('settings2/', views.settings2),
-    path('admin/controlpanel', views.controlpanel),
+    path('admin/controlpanel', views.controlpanel, name="controlpanel"),
     path('admin/add/university', views.add_uni),
     path('admin/delete/university/<int:pk>', views.delete_uni),
     path('admin/edit/university/<int:pk>', views.edit_university),

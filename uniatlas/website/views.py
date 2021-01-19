@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.template.defaultfilters import register
-import logging
 
 from .models import Enrolee, Admin, University, Faculties, Department, SCHOLARSHIP_CHOICES
 from .forms import UniForm, FacultyForm, DepartForm, searchbyuni, UniSearchForm, CreateUserForm
@@ -53,7 +52,10 @@ def resultpage(request):
 
 def loginPage(request):
     if request.user.is_authenticated:
-        return redirect('unilist')
+        if request.user.is_superuser:
+            return redirect('controlpanel')
+        else:
+            return redirect('unilist')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -62,7 +64,10 @@ def loginPage(request):
 
             if user is not None:
                 login(request, user)
-                return redirect('unilist')
+                if request.user.is_superuser:
+                    return redirect('controlpanel')
+                else:
+                    return redirect('unilist')
             else:
                 messages.info(request, 'Kullanıcı Adı veya Şifre hatalı.')
     return render(request, 'website/login.html')
